@@ -19,13 +19,24 @@
         - Add support for record patterns to appear in the header of an enhanced for statement.
     - see example `RecordPatternMatching.java`
 - [JEP 433: Pattern Matching for switch (Fourth Preview)](https://openjdk.java.net/jeps/433)
-    - TODO
-    - see example `SwitchPatternMatching.java`
     - The main changes since the 3rd preview are:
         - The grammar for switch labels is simpler.
         - Inference of type arguments for generic record patterns is now supported in switch expressions and statements,
           along with the other constructs that support patterns.
-- TODO
+    - see example `SwitchPatternMatching.java`
+- [JEP 434: Foreign Function & Memory API (Second Preview)](https://openjdk.java.net/jeps/434)
+    - Introduce an API by which Java programs can interoperate with code and data outside of the Java runtime.
+      Combination of 2 APIs introduced in previous JDKs:
+    - Foreign-Memory Access API (incubator in 14, 15 and 16)
+    - Foreign Linker API (incubator in 16)
+    - The main changes since the first preview are:
+        - The `MemorySegment` and `MemoryAddress` abstractions are unified (memory addresses are now modeled by
+          zero-length memory segments).
+        - The sealed `MemoryLayout` hierarchy is enhanced to facilitate usage with pattern matching in switch
+          expressions and statements (JEP 433).
+        - `MemorySession` has been split into `Arena` and `SegmentScope` to facilitate sharing segments across
+          maintenance boundaries.
+    - see example `ForeignFunctionAndMemoryAPI.java`
 
 ##### Other References
 
