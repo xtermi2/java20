@@ -37,12 +37,18 @@
         - `MemorySession` has been split into `Arena` and `SegmentScope` to facilitate sharing segments across
           maintenance boundaries.
     - see example `ForeignFunctionAndMemoryAPI.java`
-- [JEP 436:	Virtual Threads (Second Preview)](https://openjdk.java.net/jeps/436)
-    - Virtual threads are lightweight threads that dramatically reduce the effort of writing, maintaining, and observing high-throughput concurrent applications.
+- [JEP 436: Virtual Threads (Second Preview)](https://openjdk.java.net/jeps/436)
+    - Virtual threads are lightweight threads that dramatically reduce the effort of writing, maintaining, and observing
+      high-throughput concurrent applications.
     - Minor changes since the first preview:
-      - Some changes made in the first preview were made permanent in JDK 19 because they involve functionality that is broadly useful and is not specific to virtual threads.
+        - Some changes made in the first preview were made permanent in JDK 19 because they involve functionality that
+          is broadly useful and is not specific to virtual threads.
     - see example `VirtualThreads.java`
-
+- [JEP 437: Structured Concurrency (Second Incubator)](https://openjdk.java.net/jeps/437)
+    - Simplify multithreaded programming by introducing an API for structured concurrency. Structured concurrency treats
+      multiple tasks running in different threads as a single unit of work, thereby streamlining error handling and
+      cancellation, improving reliability, and enhancing observability.
+    - see example `StructuredConcurrency.java`
 
 ##### Other References
 
