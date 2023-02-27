@@ -14,7 +14,7 @@ class RecordPatternMatchingTest {
 
     @Test
     void printSum_should_return_sum_when_point_is_given() {
-        Object o = new RecordPatternMatching.Point(2, 5);
+        Object o = new RecordPatternMatching.Point<>(2, 5);
 
         final int sum = RecordPatternMatching.printSum(o);
 
@@ -56,7 +56,7 @@ class RecordPatternMatchingTest {
 
     @Test
     void dump_should_print_point_array() {
-        final Point[] pointArray = {
+        final var pointArray = new Point[]{
                 new Point<>(1, 2),
                 new Point<>(4, 4),
                 new Point<>(1.1, 2.2)};

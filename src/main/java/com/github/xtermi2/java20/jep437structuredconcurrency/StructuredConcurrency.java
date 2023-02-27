@@ -14,8 +14,8 @@ public class StructuredConcurrency {
 
     Response executeStructuredConcurrently() throws ExecutionException, InterruptedException {
         try (var scope = new StructuredTaskScope.ShutdownOnFailure()) {
-            Future<String> user = scope.fork(() -> findUser());
-            Future<String> order = scope.fork(() -> fetchOrder());
+            Future<String> user = scope.fork(this::findUser);
+            Future<String> order = scope.fork(this::fetchOrder);
 
             scope.join();           // Join both forks
             scope.throwIfFailed();  // ... and propagate errors
@@ -27,8 +27,8 @@ public class StructuredConcurrency {
 
     Response executeClassicConcurrently() throws ExecutionException, InterruptedException {
         try (var exec = Executors.newCachedThreadPool()) {
-            Future<String> user = exec.submit(() -> findUser());
-            Future<String> order = exec.submit(() -> fetchOrder());
+            Future<String> user = exec.submit(this::findUser);
+            Future<String> order = exec.submit(this::fetchOrder);
             String theUser = user.get();   // Join findUser
             String theOrder = order.get();  // Join fetchOrder
             return new Response(theUser, theOrder);
